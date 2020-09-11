@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'bookstore_project.apps.bookstore_root'
+    'bookstore_project.apps.bookstore_root',
+    'bookstore_project.apps.products'
 ]
 
 MIDDLEWARE = [
