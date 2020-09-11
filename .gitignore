@@ -1,0 +1,6 @@
+  
+bookstore_env/
+*.pyc
+*.sqlite3
+media/
+__pycache__/
