@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock title %}
+{% block content %}  
+<div class="row justify-content-center">
+	<div class="col-md-10">
+		<div class="card">
+			<div class="card-header">Buscar libro</div>
+			<div class="card-body">
+				<form method="GET">
+
+					{% for field in form %}
+					<div class="form-group row">
+						<label class="col-md-4 col-form-label text-md-right"> {{ field.label }}</label>
+						<div class="col-md-6">{{ field }}</div>
+					</div>
+					{%endfor%}
+					<div class="col-md-6 offset-md-4">
+						<button type="submit" class="btn btn-primary">Buscar</button>
+					</div>
+				</form>
+				<br/>
+				<br/>
+				{% for error in form.non_field_errors %}
+				<div class="alert alert-danger" role="alert">
+					{{ error }}
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+{% for book in books %}
+<h1>{{ book.title }}</h1>
+{%endfor%}
+{% endblock content%}
+
