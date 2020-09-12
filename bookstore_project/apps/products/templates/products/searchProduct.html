@@ -1,6 +1,4 @@
 {% extends 'base.html' %}
-{% block title %}
-{% endblock title %}
 {% block content %}  
 <div class="row justify-content-center">
 	<div class="col-md-10">
@@ -8,7 +6,6 @@
 			<div class="card-header">Buscar libro</div>
 			<div class="card-body">
 				<form method="GET">
-
 					{% for field in form %}
 					<div class="form-group row">
 						<label class="col-md-4 col-form-label text-md-right"> {{ field.label }}</label>
@@ -29,10 +26,33 @@
 			</div>
 		</div>
 	</div>
+{% if books|length > 0 %}
+<br>
+<br>
+<div class="col-md-10">
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Título</th>
+				<th scope="col">Autor</th>
+				<th scope="col">ISBN</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for book in books %}
+			<tr>
+				<td>{{book.title}}</td>
+				<td>{{book.author.name}}</td>
+				<td>{{book.isbn}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 </div>
 </div>
-{% for book in books %}
-<h1>{{ book.title }}</h1>
-{%endfor%}
+{% endif %}
+</div>
 {% endblock content%}
+
 

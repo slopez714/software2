@@ -15,7 +15,7 @@ def search_book_basic(request):
 		return render(request, 'products/searchProduct.html',{'form': form})
 
 def search_book_complex(request):
-	if request.GET.get('string_search_author'):
+	if 'string_search_author' in request.GET or 'string_search_title' in request.GET or 'string_search_isbn' in request.GET :
 		form = SearchBookComplexForm(request.POST or None)
 		string_search_author = request.GET.get('string_search_author','')
 		string_search_title = request.GET.get('string_search_title','')
